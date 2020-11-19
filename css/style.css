@@ -1,3 +1,17 @@
 body {
     background: #aaa;
 }
+
+.block {
+    background: rgba(23, 75, 77, .8);
+    color: #fff;
+}
+
+#github {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+p {
+    font-size: 16px;
+    color: yellowgreen;
+}

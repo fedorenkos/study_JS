@@ -24,7 +24,6 @@ console.log(addExpenses.toLowerCase());
 console.log(addExpenses.split(', '));
 
 
-let budgetDay = 1000;
 let month = 30;
-let res = (budgetDay / month);
-console.log('Доход за месяц ' + res + '$');
+const budgetDay = (money / month);
+console.log('Доход за месяц ' + budgetDay + '$');

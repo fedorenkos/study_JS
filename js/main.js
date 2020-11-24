@@ -23,6 +23,11 @@ console.log('Доход за месяц ' + budgetDay + '$');
 
 console.log("----------------------ДЗ-3----------------------");
 
+let questionDeposit = confirm('Есть ли у вас депозит в банке?');
+if (true) {
+    console.log('Deposit: ' + questionDeposit);    
+}
+
 let question = prompt('Ваш месячный доход?', money);
 
 console.log(typeof(question));

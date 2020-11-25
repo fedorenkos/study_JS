@@ -45,8 +45,8 @@ console.log(amount2);
 
 
 
-let totalExpenses = expenses1 + expenses2;
-let totalAmounts = amount1 + amount2;
+let totalExpenses = expenses1 + amount1;
+let totalAmounts = expenses2 + amount2;
 let budgetMonth = money - (totalExpenses + totalAmounts);
 let goal = mission / budgetMonth;
 console.log('Бюджет за месяц ' + (budgetMonth));

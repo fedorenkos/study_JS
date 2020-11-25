@@ -26,32 +26,26 @@ console.log(typeof(question1));
 
 const question2 = confirm('Есть ли у вас депозит в банке?', deposit);
 if (true) {
-    console.log('Deposit: ' + questionDeposit);
+    console.log('Deposit: ' + deposit);
 }
 
-const expenses1 = +prompt('Введите обязательную статью расходов?', '');
+const expenses1 = prompt('Введите обязательную статью расходов?', 'Internet');
 
-console.log(expenses1);
-const amount1 = +prompt('Во сколько это обойдется?', '');
+// console.log(expenses1);
+const amount1 = +prompt('Во сколько это обойдется?', 4000);
+const expenses2 = prompt('Введите обязательную статью расходов?', 'Taxes');
 
-console.log(amount1);
-const expenses2 = +prompt('Введите обязательную статью расходов?', '');
+const amount2 = +prompt('Во сколько это обойдется?', 7000);
 
-console.log(expenses2);
+const amount = amount1 + amount2;
 
-const amount2 = prompt('Во сколько это обойдется?', '');
+const budgetMonth = (money - (amount));
 
-console.log(amount2);
+console.log('Доход за месяц: ' + budgetMonth);
 
+const periodGoal = Math.ceil(mission / budgetMonth);
 
-
-let totalExpenses = expenses1 + amount1;
-let totalAmounts = expenses2 + amount2;
-let budgetMonth = money - (totalExpenses + totalAmounts);
-let goal = mission / budgetMonth;
-console.log('Бюджет за месяц ' + (budgetMonth));
-
-console.log('Цель будет достигнута за ' + Math.ceil(goal) + ' месяцев');
+console.log('Цель будет достигнута за ' + periodGoal + ' месяцев');
 
 if (budgetDay > 1200) {
     console.log('У вас высокий уровень дохода');
@@ -70,6 +64,5 @@ console.log(typeof deposit);
 console.log(addExpenses.length);
 console.log('Период равен ' + period + ' месяцев');
 console.log('Цель заработать ' + mission + ' $');
-console.log(addExpenses.toLowerCase());
-console.log(addExpenses.split(', '));
+console.log(addExpenses.toLowerCase().split(', '));
 console.log('Доход за месяц ' + budgetDay + '$');

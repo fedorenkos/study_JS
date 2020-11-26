@@ -41,7 +41,7 @@ const amount = amount1 + amount2;
 
 const budgetMonth = (money - (amount));
 const budgetDay = (Math.floor(budgetMonth / 30));
-console.log('Доход за месяц: ' + budgetDay);
+console.log('Доход за день: ' + budgetDay);
 
 const periodGoal = Math.ceil(mission / budgetMonth);
 
@@ -65,4 +65,4 @@ console.log(addExpenses.length);
 console.log('Период равен ' + period + ' месяцев');
 console.log('Цель заработать ' + mission + ' $');
 console.log(addExpenses.toLowerCase().split(', '));
-console.log('Доход за месяц ' + budgetDay + '$');
+console.log('Доход за месяц ' + budgetMonth + '$');

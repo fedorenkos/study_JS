@@ -1,7 +1,7 @@
-const money = 50000;
+const money = prompt('Ваш месячный доход?', 50000);;
 const income = 'freelance';
-const addExpenses = 'Internet, Taxi, Taxes, Food, Clothes, Travelling';
-const deposit = true;
+const addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 'Internet, Taxi, Taxes, Food, Clothes, Travelling');
+const deposit = confirm('Есть ли у вас депозит в банке?');
 const mission = 1200000;
 const period = 12;
 const budgetDay = (Math.floor(money / 30));
@@ -16,15 +16,15 @@ const budgetDay = (Math.floor(money / 30));
 console.log("----------------------ДЗ-3----------------------");
 
 
-const question = prompt('Ваш месячный доход?', money);
+// const question = prompt('Ваш месячный доход?', money);
 
-console.log(typeof(question));
+// console.log(typeof(question));
 
-const question1 = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', addExpenses);
+// const question1 = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', addExpenses);
 
-console.log(typeof(question1));
+// console.log(typeof(question1));
 
-const question2 = confirm('Есть ли у вас депозит в банке?', deposit);
+// const question2 = confirm('Есть ли у вас депозит в банке?', deposit);
 if (true) {
     console.log('Deposit: ' + deposit);
 }

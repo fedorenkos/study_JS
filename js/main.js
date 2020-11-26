@@ -4,7 +4,7 @@ const addExpenses = prompt('Перечислите возможные расхо
 const deposit = confirm('Есть ли у вас депозит в банке?');
 const mission = 1200000;
 const period = 12;
-const budgetDay = (Math.floor(money / 30));
+
 
 
 
@@ -40,8 +40,8 @@ const amount2 = +prompt('Во сколько это обойдется?', 7000);
 const amount = amount1 + amount2;
 
 const budgetMonth = (money - (amount));
-
-console.log('Доход за месяц: ' + budgetMonth);
+const budgetDay = (Math.floor(budgetMonth / 30));
+console.log('Доход за месяц: ' + budgetDay);
 
 const periodGoal = Math.ceil(mission / budgetMonth);
 

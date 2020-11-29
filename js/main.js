@@ -2,22 +2,23 @@ let isNumber = function(n){
     return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
-let money,
+
+let money = prompt('Ваш месячный доход?'),
     income = 'freelance',
     addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 'Internet, Taxi, Taxes, Food, Clothes, Travelling'),
     deposit = confirm('Есть ли у вас депозит в банке?'),
     mission = 1200000,
     period = 12;
 
-let start = function(){
-    money = prompt('Ваш месячный доход?');
-
-    while(!isNumber(money)){
-        money = prompt('Ваш месячный доход?');
-    }
-};
-
-start();
+    let start = function(){
+        money;
+    
+        while(!isNumber(money)){
+            money = prompt('Ваш месячный доход?');
+        }
+    };
+    
+    start();
 
 console.log("----------------------ДЗ-5----------------------");
 let showTypeOf = function(data) {

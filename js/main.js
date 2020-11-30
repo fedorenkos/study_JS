@@ -6,6 +6,7 @@ let money,
         while (!isNumber(money)) {
             money = prompt('Ваш месячный доход?');
         }
+        console.log(typeof(money));
     };
 
 start();
@@ -20,11 +21,6 @@ let appData = {
     budget: money,
     budgetDay: 0,
     budgetMonth: 0,
-    expensesMonth: 0,
-    getExpensesMonth: {},
-    getAccumulatedMonth: {},
-    getTargetMonth: {},
-    getStatusIncome: {},
     period: 12,
     asking: function() {
         let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 'Internet, Taxi, Taxes, Food, Clothes, Travelling');
@@ -39,18 +35,7 @@ let appData = {
 
 
 console.log("----------------------ДЗ-6----------------------");
-// let showTypeOf = function(item) {
-//     console.log(typeof(item));
-// };
 
-// showTypeOf(money);
-// showTypeOf(appData.income);
-// showTypeOf(appData.deposit);
-
-// const expenses1 = prompt('Введите обязательную статью рассходов?');
-// const expenses1Amount = +prompt('Во сколько это обойдется?', '');
-// const expenses2 = prompt('Введите обязательную статью рассходов?');
-// const expenses2Amount = +prompt('Во сколько это обойдется?', '');
 let expenses = [];
 
 
@@ -66,7 +51,7 @@ const getExpensesMonth = function() {
     return sum;
 };
 
-let expensesAmount = appData.getExpensesMonth();
+let expensesAmount = getExpensesMonth();
 
 console.log('Расходы за месяц: ' + expensesAmount);
 
@@ -77,7 +62,7 @@ getAccumulatedMonth();
 
 
 // const budgetMonth = expensesAmount;
-let accumulatedMonth = appData.getAccumulatedMonth();
+let accumulatedMonth = getAccumulatedMonth();
 console.log(accumulatedMonth);
 
 
@@ -89,7 +74,7 @@ let getTargetMonth = function() {
 
 };
 
-let targetMonth = appData.getTargetMonth();
+let targetMonth = getTargetMonth();
 
 if (targetMonth > 0) {
     console.log('Цель будет достигнута за: ' + targetMonth + ' месяцев');
@@ -120,4 +105,4 @@ let getStatusIncome = function() {
 
 console.log(getStatusIncome());
 
-let statusIncome = addData.getStatusIncome();
+let statusIncome = getStatusIncome();

@@ -6,7 +6,7 @@ let start = function(){
     do{
         money= prompt('Ваш месячный доход?', 50000);
     }
-    while(isNaN(money) || money.trim() === '' || money === null);
+    while(isNaN(money) || money === '' || money === null);
 };
 
 start();
@@ -41,11 +41,13 @@ console.log(addExpenses.toLowerCase().split(','));
 const getExpensesMonth = function() {
     let sum = 0;
         for (let i = 0; i < 2; i++){
-
             expenses[i] = prompt('Введите обязательную статью рассходов?', 'Cinema, Theater');
+            
+            let sumNumbers = 0;
             do{
-            sum += +prompt('Во сколько это обойдется?');
-            }while(isNaN(sum) || sum === '' || sum === null);
+                sumNumbers = prompt('Во сколько это обойдется?');
+            }while(isNaN(sumNumbers) || sumNumbers === '' || sumNumbers === null);
+                sum = sum + sumNumbers;
         };
 
         console.log(expenses);

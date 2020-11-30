@@ -1,18 +1,7 @@
 let isNumber = function(n){
     return !isNaN(parseFloat(n)) && isFinite(n);
 }
-
-
-
-let money,
-    income = 'freelance',
-    addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 'Internet, Taxi, Taxes, Food, Clothes, Travelling'),
-    deposit = confirm('Есть ли у вас депозит в банке?'),
-    mission = 1200000,
-    period = 12;
-
-console.log("----------------------ДЗ-5----------------------");
-
+let money;
 let start = function(){
     do{
         money= prompt('Ваш месячный доход?', 50000);
@@ -21,6 +10,17 @@ let start = function(){
 };
 
 start();
+    
+
+let income = 'freelance',
+    addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 'Internet, Taxi, Taxes, Food, Clothes, Travelling'),
+    deposit = confirm('Есть ли у вас депозит в банке?'),
+    mission = 1200000,
+    period = 12;
+
+console.log("----------------------ДЗ-5----------------------");
+
+
 
 let showTypeOf = function(data) {
     console.log(data, typeof(data));
@@ -43,9 +43,9 @@ const getExpensesMonth = function() {
         for (let i = 0; i < 2; i++){
 
             expenses[i] = prompt('Введите обязательную статью рассходов?', 'Cinema, Theater');
-            while(isNaN(sum) || sum.trim() === '' || sum === null){
+            do{
             sum += +prompt('Во сколько это обойдется?');
-            };
+            }while(isNaN(sum) || sum === '' || sum === null);
         };
 
         console.log(expenses);

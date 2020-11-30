@@ -45,7 +45,7 @@ const getExpensesMonth = function() {
             
             let sumNumbers = 0;
             do{
-                sumNumbers = prompt('Во сколько это обойдется?');
+                sumNumbers = +prompt('Во сколько это обойдется?');
             }while(isNaN(sumNumbers) || sumNumbers === '' || sumNumbers === null);
                 sum = sum + sumNumbers;
         };

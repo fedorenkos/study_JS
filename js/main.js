@@ -4,7 +4,7 @@ let isNumber = function(n) {
 let money,
     start = function() {
         while (!isNumber(money)) {
-            money = prompt('Ваш месячный доход?');
+            money = prompt('Ваш месячный доход?', 50000);
         }
         console.log(typeof(money));
     };
@@ -44,8 +44,11 @@ const getExpensesMonth = function() {
     for (let i = 0; i < 2; i++) {
 
         expenses[i] = prompt('Введите обязательную статью рассходов?', 'Cinema, Theater');
-
-        sum += +prompt('Во сколько это обойдется?');
+        let sumNumbers = 0;
+        do {
+            sumNumbers = +prompt('Во сколько это обойдется?');
+        } while (isNaN(sumNumbers) || sumNumbers === '' || sumNumbers === null);
+        sum = sum + sumNumbers;
     }
     console.log(expenses);
     return sum;

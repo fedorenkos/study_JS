@@ -28,29 +28,26 @@ let appData = {
         appData.deposit = confirm('Есть ли у вас депозит в банке?');
     },
     getExpensesMonth: function(){
+        
         let sum = 0;
         for (let i = 0; i < 2; i++) {
-        appData.expenses[i] = prompt('Введите обязательную статью рассходов?', 'Cinema, Theater');
+
+        expenses[i] = prompt('Введите обязательную статью рассходов?', 'Cinema, Theater');
         let sumNumbers = 0;
         do {
-            appData.sumNumbers = +prompt('Во сколько это обойдется?');
+            sumNumbers = +prompt('Во сколько это обойдется?');
         } while (isNaN(sumNumbers) || sumNumbers === '' || sumNumbers === null);
         sum = sum + sumNumbers;
     }
     console.log(expenses);
     return sum;
     },
-    getAccumulatedMonth: function() {
+    getAccumulatedMonth: function(){
         return appData.money - expensesAmount;
     },
     getTargetMonth: function(){
-        if (targetMonth > 0) {
-            console.log('Цель будет достигнута за: ' + targetMonth + ' месяцев');
-        } else {
-            console.log('Цель не будет достигнута!!!');
-        }
-        return parseInt(appData.mission / accumulatedMonth);
         
+        return parseInt(appData.mission / accumulatedMonth);
     },
     getStatusIncome: function(){
         if (budgetDay > 1200) {
@@ -65,22 +62,48 @@ let appData = {
     }
 };
 
+
+
+
+
+
 console.log("----------------------ДЗ-7----------------------");
 
 let expenses = [];
+
+
+const getExpensesMonth = function() {
+    
+};
 
 let expensesAmount = appData.getExpensesMonth();
 
 console.log('Расходы за месяц: ' + expensesAmount);
 
+const getAccumulatedMonth = function() {
+    
+};
 getAccumulatedMonth();
 
 
 // const budgetMonth = expensesAmount;
-let accumulatedMonth = getAccumulatedMonth();
+let accumulatedMonth = appData.getAccumulatedMonth();
 console.log(accumulatedMonth);
 
+
+
+
+let getTargetMonth = function() {
+
+};
+
 let targetMonth = appData.getTargetMonth();
+    if (targetMonth > 0) {
+        console.log('Цель будет достигнута за: ' + targetMonth + ' месяцев');
+    } else {
+        console.log('Цель не будет достигнута!!!');
+    }
+
 
 getTargetMonth();
 

@@ -1,16 +1,16 @@
-let isNumber = function(n){
+let isNumber = function(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
 }
 let money;
-let start = function(){
-    do{
-        money= prompt('Ваш месячный доход?', 50000);
+let start = function() {
+    do {
+        money = prompt('Ваш месячный доход?', 50000);
     }
-    while(isNaN(money) || money === '' || money === null);
+    while (isNaN(money) || money === '' || money === null);
 };
 
 start();
-    
+
 
 let income = 'freelance',
     addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 'Internet, Taxi, Taxes, Food, Clothes, Travelling'),
@@ -40,19 +40,20 @@ console.log(addExpenses.toLowerCase().split(','));
 
 const getExpensesMonth = function() {
     let sum = 0;
-        for (let i = 0; i < 2; i++){
-            expenses[i] = prompt('Введите обязательную статью рассходов?', 'Cinema, Theater');
-            
-            let sumNumbers = 0;
-            do{
-                sumNumbers = +prompt('Во сколько это обойдется?');
-            }while(isNaN(sumNumbers) || sumNumbers === '' || sumNumbers === null);
-                sum = sum + sumNumbers;
-        };
+    for (let i = 0; i < 2; i++) {
+        expenses[i] = prompt('Введите обязательную статью рассходов?', 'Cinema, Theater');
 
-        console.log(expenses);
-        console.log(sum);
-        return sum;
+        let sumNumbers = 0;
+
+        do {
+            sumNumbers = +prompt('Во сколько это обойдется?');
+        } while (isNaN(sumNumbers) || sumNumbers === '' || sumNumbers === null || sumNumbers === 0);
+        sum = sum + sumNumbers;
+    };
+
+    console.log(expenses);
+    console.log(sum);
+    return sum;
 };
 
 let expensesAmount = getExpensesMonth();
@@ -73,16 +74,16 @@ console.log(accumulatedMonth);
 
 
 let getTargetMonth = function() {
-    
+
     return parseInt(mission / accumulatedMonth);
-    
+
 };
 
 let targetMonth = getTargetMonth();
 
-if (targetMonth > 0 ) {
+if (targetMonth > 0) {
     console.log('Цель будет достигнута за: ' + targetMonth + ' месяцев');
-} else{
+} else {
     console.log('Цель не будет достигнута!!!');
 }
 

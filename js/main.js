@@ -49,16 +49,24 @@ let appData = {
             return parseInt(appData.mission / accumulatedMonth);
         },
         getStatusIncome: function(){
-            
+            if (budgetDay > 1200) {
+                return ('У вас высокий уровень дохода');
+            } else if (budgetDay >= 600 && budgetDay <= 1200) {
+                return ('У вас средний уровень дохода');
+            } else if (budgetDay <= 600 && budgetDay > 0) {
+                return ('К сожалению у вас уровень дохода ниже среднего');
+            } else if (budgetDay <= 0) {
+                return ('Что то пошло не так');
+            }
         }
 };
 
-// appData.asking();
+appData.asking();
 
 
 
 
-console.log("----------------------ДЗ-6----------------------");
+console.log("----------------------ДЗ-7----------------------");
 
 
 
@@ -108,17 +116,9 @@ console.log('Бюджет на день: ' + budgetDay);
 
 
 let getStatusIncome = function() {
-    if (budgetDay > 1200) {
-        return ('У вас высокий уровень дохода');
-    } else if (budgetDay >= 600 && budgetDay <= 1200) {
-        return ('У вас средний уровень дохода');
-    } else if (budgetDay <= 600 && budgetDay > 0) {
-        return ('К сожалению у вас уровень дохода ниже среднего');
-    } else if (budgetDay <= 0) {
-        return ('Что то пошло не так');
-    }
+    
 }
 
-console.log(getStatusIncome());
+console.log(appData.getStatusIncome());
 
 let statusIncome = appData.getStatusIncome();

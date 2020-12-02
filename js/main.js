@@ -21,14 +21,13 @@ let appData = {
     budget: money,
     budgetDay: 0,
     budgetMonth: 0,
+    expensesMonth: 0,
     period: 12,
     asking: function() {
         let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 'Internet, Taxi, Taxes, Food, Clothes, Travelling');
         appData.addExpenses = addExpenses.toLowerCase().split(',');
         appData.deposit = confirm('Есть ли у вас депозит в банке?');
-    },
-    getExpensesMonth: function(){
-        let expenses = [];
+        
         let sum = 0;
         for (let i = 0; i < 2; i++) {
 
@@ -39,10 +38,17 @@ let appData = {
             } while (isNaN(sumNumbers) || sumNumbers === '' || sumNumbers === null);
             sum = sum + sumNumbers;
         }
-        console.log(expenses);
+        console.log(Object.keys(appData.expenses).length);
         return sum;
-        },
-        getAccumulatedMonth: function(){
+    },
+    getExpensesMonth: function(){
+            for (const key in appData.expenses) {
+                console.log('Ключ: ' + key + 'Значение: ' + appData.expenses[key]);
+            }
+            console.log(Object.keys(appData.expenses).length);
+    },
+        getBudget: function(){
+            
             return appData.budget - expensesAmount;
         },
         getTargetMonth: function(){
@@ -79,11 +85,19 @@ let expensesAmount = appData.getExpensesMonth();
 
 console.log('Расходы за месяц: ' + expensesAmount);
 
-const getAccumulatedMonth = function() {
-    
-};
-getAccumulatedMonth();
 
+
+// const getAccumulatedMonth = function() {
+    
+// };
+// getAccumulatedMonth();
+
+const getBudget = function(){
+
+};
+
+getBudget();
+// let getAccumulatedMonth = getBudget;
 
 // const budgetMonth = expensesAmount;
 let accumulatedMonth = appData.getAccumulatedMonth();

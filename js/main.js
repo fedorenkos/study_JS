@@ -42,13 +42,13 @@ let appData = {
         return sum;
     },
     getExpensesMonth: function() {
-        for (const sum in appData.expenses) {
-            console.log('Ключ: ' + sum + 'Значение: ' + appData.expenses[sum]);
+        for (const key in appData.expenses) {
+            // return appData.budgetMonth[key];
         }
         return appData.expensesMonth;
     },
     getBudget: function() {
-        appData.budgetMonth = money /appData.expenses;
+        money /appData.expenses;
         appData.budgetMonth / 30;
 
         // console.log('Бюджет на день: ' + appData.budgetDay);
@@ -83,9 +83,6 @@ console.log("----------------------ДЗ-7----------------------");
 
 
 
-const getExpensesMonth = function() {
-
-};
 
 let expensesAmount = appData.getExpensesMonth();
 
@@ -93,16 +90,6 @@ console.log('Расходы за месяц: ' + expensesAmount);
 
 
 
-const getAccumulatedMonth = function() {
-
-};
-getAccumulatedMonth();
-
-const getBudget = function() {
-
-};
-
-getBudget();
 
 const budgetMonth = expensesAmount;
 // let accumulatedMonth = appData.getAccumulatedMonth();

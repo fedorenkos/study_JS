@@ -46,22 +46,27 @@ let appData = {
             console.log('Ключ: ' + key + 'Значение: ' + appData.expenses[key]);
         }
         console.log(Object.keys(appData.expenses).length);
+        console.log(appData.expenses);
+        console.log('Расходы за месяц: ' + appData.expensesMonth);
+        return appData.expenses;
     },
-    getAccumulatedMonth: function() {
-
-        return appData.accumulatedMonth - expensesAmount;
+    getBudget: function() {
+        appData.budgetDay = Math.floor(accumulatedMonth / 30);
+        console.log('Бюджет на день: ' + appData.budgetDay);
+        return appData.budgetMonth - appData.getBudget;
     },
     getTargetMonth: function() {
-        return parseInt(appData.mission / accumulatedMonth);
+        console.log(parseInt(appData.mission / money));
+        return parseInt(appData.mission / money);
     },
     getStatusIncome: function() {
-        if (budgetDay > 1200) {
+        if (appData.budgetDay > 1200) {
             return ('У вас высокий уровень дохода');
-        } else if (budgetDay >= 600 && budgetDay <= 1200) {
+        } else if (appData.budgetDay >= 600 && appData.budgetDay <= 1200) {
             return ('У вас средний уровень дохода');
-        } else if (budgetDay <= 600 && budgetDay > 0) {
+        } else if (appData.budgetDay <= 600 && appData.budgetDay > 0) {
             return ('К сожалению у вас уровень дохода ниже среднего');
-        } else if (budgetDay <= 0) {
+        } else if (appData.budgetDay <= 0) {
             return ('Что то пошло не так');
         }
     }
@@ -100,8 +105,8 @@ getAccumulatedMonth();
 // let getAccumulatedMonth = getBudget;
 
 // const budgetMonth = expensesAmount;
-let accumulatedMonth = appData.getAccumulatedMonth();
-console.log(accumulatedMonth);
+// let accumulatedMonth = appData.getAccumulatedMonth();
+// console.log(accumulatedMonth);
 
 
 
@@ -120,12 +125,12 @@ if (targetMonth > 0) {
     console.log('Цель не будет достигнута!!!');
 }
 
-getTargetMonth();
+appData.getTargetMonth();
 
 
 
-const budgetDay = Math.floor(accumulatedMonth / 30);
-console.log('Бюджет на день: ' + budgetDay);
+// const budgetDay = Math.floor(accumulatedMonth / 30);
+// console.log('Бюджет на день: ' + budgetDay);
 
 
 

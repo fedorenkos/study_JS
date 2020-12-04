@@ -30,29 +30,23 @@ let appData = {
 
         let sum = 0;
         for (let i = 0; i < 2; i++) {
-
-            appData.expenses[i] = prompt('Введите обязательную статью рассходов?', 'Cinema, Theater');
+            let mandatoryExpense = prompt('Введите обязательную статью рассходов?', 'Cinema, Theater');
             let sumNumbers = 0;
             do {
-                sumNumbers = +prompt('Во сколько это обойдется?');
+                appData.expenses[mandatoryExpense] = +prompt('Во сколько это обойдется?');
             } while (isNaN(sumNumbers) || sumNumbers === '' || sumNumbers === null);
-            sum = sum + sumNumbers;
+
+            sum = sum + appData.expenses[mandatoryExpense];
         }
-        console.log(Object.keys(appData.expenses).length);
-        return sum;
+
+        // return sum;
     },
     getExpensesMonth: function() {
-        for (const key in appData.expenses) {
-            // return appData.budgetMonth[key];
-        }
         return appData.expensesMonth;
     },
     getBudget: function() {
-        money /appData.expenses;
-        appData.budgetMonth / 30;
-
-        // console.log('Бюджет на день: ' + appData.budgetDay);
-        // console.log(appData.budgetMonth - appData.getBudget);
+        appData.budgetMonth = money / appData.expenses;
+        appData.budgetDay = appData.budgetMonth / 30;
         return appData.getBudget;
     },
     getTargetMonth: function() {

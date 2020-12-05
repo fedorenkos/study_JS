@@ -34,7 +34,7 @@ let appData = {
             let sumNumbers = 0;
             do {
                 appData.expenses[mandatoryExpense] = +prompt('Во сколько это обойдется?');
-            } while (isNaN(sumNumbers) || sumNumbers === '' || sumNumbers === null);
+            } while (!isNaN(sumNumbers) || sumNumbers === '' || sumNumbers === null);
 
             sum = sum + appData.expenses[mandatoryExpense];
         }
@@ -47,7 +47,7 @@ let appData = {
     getBudget: function() {
         appData.budgetMonth = money / appData.expenses;
         appData.budgetDay = appData.budgetMonth / 30;
-        return appData.getBudget;
+        return getBudget;
     },
     getTargetMonth: function() {
         appData.mission / money;

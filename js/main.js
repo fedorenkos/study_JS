@@ -1,6 +1,7 @@
 let isNumber = function(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
 }
+
 let money,
     start = function() {
         while (!isNumber(money)) {
@@ -33,27 +34,36 @@ let appData = {
             let mandatoryExpense = prompt('Введите обязательную статью рассходов?', 'Cinema, Theater');
             let sumNumbers = 0;
             do {
-                sumNumbers = prompt('Во сколько это обойдется?');
+                sumNumbers = +prompt('Во сколько это обойдется?');
             } while (!isNumber(sumNumbers) || sumNumbers === '' || sumNumbers === null);
             appData.expenses[mandatoryExpense] = sumNumbers;
             console.log(appData.expenses);
         }
     },
+    
     // Циклом пройдись по appData.expenses и в методе getExpensesMonth верни сумму расходов.
     getExpensesMonth: function() {
         for (const sumNumbers in appData.expenses) {
-            appData.expensesMonth = appData.expenses[sumNumbers];
-        }
-        
+            if(isNumber(appData.expenses[sumNumbers])) {
+                appData.expensesMonth += appData.expenses[sumNumbers];
+                }
+            }
         return appData.expensesMonth;
     },
     getBudget: function() {
         appData.budgetMonth = appData.budget / appData.expensesMonth;
+        console.log(appData.budgetMonth);
         appData.budgetDay = appData.budgetMonth / 30;
+        console.log(appData.budgetDay);
         return appData.getBudget;
     },
     getTargetMonth: function() {
-        appData.mission / money;
+        appData.getTargetMonth = appData.mission / appData.budget;
+        if (appData.getTargetMonth > 0) {
+            console.log('Цель будет достигнута за: ' + appData.getTargetMonth + ' месяцев');
+        } else {
+            console.log('Цель не будет достигнута!!!');
+        }
         return appData.getTargetMonth;
     },
     getStatusIncome: function() {
@@ -101,21 +111,17 @@ const budgetMonth = expensesAmount;
 
 
 
-let getTargetMonth = function() {
+// let getTargetMonth = function() {
 
-    return parseInt(appData.mission / accumulatedMonth);
+//     return parseInt(appData.mission / accumulatedMonth);
 
-};
+// };
 
-let targetMonth = appData.getTargetMonth();
+// let targetMonth = appData.getTargetMonth();
 
-if (targetMonth > 0) {
-    console.log('Цель будет достигнута за: ' + targetMonth + ' месяцев');
-} else {
-    console.log('Цель не будет достигнута!!!');
-}
 
-appData.getTargetMonth();
+
+// appData.getTargetMonth();
 
 
 

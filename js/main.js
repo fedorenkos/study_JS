@@ -35,15 +35,20 @@ let appData = {
             do {
                 sumNumbers = prompt('Во сколько это обойдется?');
             } while (!isNumber(sumNumbers) || sumNumbers === '' || sumNumbers === null);
-            console.log(typeof(sumNumbers));
-            appData.expenses[mandatoryExpense] = sumNumbers;   
+            appData.expenses[mandatoryExpense] = sumNumbers;
+            console.log(appData.expenses);
         }
     },
+    // Циклом пройдись по appData.expenses и в методе getExpensesMonth верни сумму расходов.
     getExpensesMonth: function() {
+        for (const sumNumbers in appData.expenses) {
+            appData.expensesMonth = appData.expenses[sumNumbers];
+        }
+        
         return appData.expensesMonth;
     },
     getBudget: function() {
-        appData.budgetMonth = money / appData.expenses;
+        appData.budgetMonth = appData.budget / appData.expensesMonth;
         appData.budgetDay = appData.budgetMonth / 30;
         return appData.getBudget;
     },
@@ -64,6 +69,9 @@ let appData = {
         return appData.getStatusIncome;
     }
 };
+// for (const key in appData) {
+//     console.log('Наша программа включает в себя данные: ' + appData[key]);
+// }
 
 appData.asking();
 
@@ -84,6 +92,9 @@ console.log('Расходы за месяц: ' + expensesAmount);
 
 
 const budgetMonth = expensesAmount;
+
+
+
 // let accumulatedMonth = appData.getAccumulatedMonth();
 // console.log(accumulatedMonth);
 

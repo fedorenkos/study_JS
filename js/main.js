@@ -80,9 +80,10 @@ let appData = {
         return appData.getStatusIncome;
     }
 };
-// for (const key in appData) {
-//     console.log('Наша программа включает в себя данные: ' + appData[key]);
-// }
+console.log('Наша программа включает в себя данные: ');
+for (const key in appData) {
+    console.log(appData[key]);
+}
 
 appData.asking();
 

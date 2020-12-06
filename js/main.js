@@ -93,7 +93,7 @@ console.log("----------------------ДЗ-7----------------------");
 
 console.log('Наша программа включает в себя данные: ');
 for (const key in appData) {
-    console.log(appData[key]);
+    console.log(key + ' ' + appData[key]);
 }
 
 let expensesAmount = appData.getExpensesMonth();

@@ -98,15 +98,9 @@ for (const key in appData) {
 
 let expensesAmount = appData.getExpensesMonth();
 console.log('Расходы за месяц: ' + expensesAmount);
-const budgetMonth = expensesAmount;
 
 let targetMonth = appData.getTargetMonth();
 
 appData.getBudget();
-let getStatusIncome = function() {
-
-}
 
 console.log(appData.getStatusIncome());
-
-let statusIncome = appData.getStatusIncome();

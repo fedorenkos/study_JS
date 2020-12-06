@@ -34,9 +34,9 @@ let appData = {
             let mandatoryExpense = prompt('Введите обязательную статью рассходов?', 'Cinema, Theater');
             let sumNumbers = 0;
             do {
-                sumNumbers = +prompt('Во сколько это обойдется?');
+                sumNumbers = prompt('Во сколько это обойдется?');
             } while (!isNumber(sumNumbers) || sumNumbers === '' || sumNumbers === null);
-            appData.expenses[mandatoryExpense] = sumNumbers;
+            appData.expenses[mandatoryExpense] = +sumNumbers;
             console.log(appData.expenses);
         }
     },
@@ -80,10 +80,7 @@ let appData = {
         return appData.getStatusIncome;
     }
 };
-console.log('Наша программа включает в себя данные: ');
-for (const key in appData) {
-    console.log(appData[key]);
-}
+
 
 appData.asking();
 
@@ -94,7 +91,10 @@ console.log("----------------------ДЗ-7----------------------");
 
 
 
-
+console.log('Наша программа включает в себя данные: ');
+for (const key in appData) {
+    console.log(appData[key]);
+}
 
 let expensesAmount = appData.getExpensesMonth();
 console.log('Расходы за месяц: ' + expensesAmount);

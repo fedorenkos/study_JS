@@ -51,9 +51,9 @@ let appData = {
         return appData.expensesMonth;
     },
     getBudget: function() {
-        appData.budgetMonth = appData.budget / appData.expensesMonth;
+        appData.budgetMonth = appData.budget - appData.expensesMonth;
         console.log(appData.budgetMonth);
-        appData.budgetDay = appData.budgetMonth / 30;
+        appData.budgetDay = Math.floor(appData.budgetMonth / 30);
         console.log(appData.budgetDay);
         return appData.getBudget;
     },
@@ -76,6 +76,7 @@ let appData = {
         } else if (appData.budgetDay <= 0) {
             return ('Что то пошло не так');
         }
+        console.log( appData.getStatusIncome);
         return appData.getStatusIncome;
     }
 };
@@ -95,21 +96,11 @@ console.log("----------------------ДЗ-7----------------------");
 
 
 let expensesAmount = appData.getExpensesMonth();
-
 console.log('Расходы за месяц: ' + expensesAmount);
-
-
-
-
 const budgetMonth = expensesAmount;
-
-
 
 // let accumulatedMonth = appData.getAccumulatedMonth();
 // console.log(accumulatedMonth);
-
-
-
 
 // let getTargetMonth = function() {
 
@@ -117,19 +108,14 @@ const budgetMonth = expensesAmount;
 
 // };
 
-// let targetMonth = appData.getTargetMonth();
-
-
+let targetMonth = appData.getTargetMonth();
 
 // appData.getTargetMonth();
-
-
 
 const budgetDay = Math.floor(appData.budgetMonth / 30);
 console.log('Бюджет на день: ' + appData.budgetDay);
 
-
-
+appData.getBudget();
 let getStatusIncome = function() {
 
 }

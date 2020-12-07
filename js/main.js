@@ -30,8 +30,13 @@ let appData = {
         console.log("----------------------ДЗ-8----------------------");
         if (confirm('Есть ли у вас дополнительный источник зароботка?')) {
 
-            let itemIncome = prompt('Какой дополнительный заработок?', 'Таксую');
-
+            let itemIncome;
+            do{
+                itemIncome = prompt('Какой дополнительный заработок?', 'Таксую');
+            }   while (isNumber(itemIncome) || itemIncome === '' || itemIncome === null)
+            appData.income = itemIncome;
+            console.log(typeof(itemIncome));               
+            
             let cashIncome = 0;
             do {
                 cashIncome = prompt('Сколько в месяц вы на этом зарабатываете?', 10000);
@@ -40,8 +45,12 @@ let appData = {
             console.log(typeof(cashIncome));
         }
 
-
-        let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 'Internet, Taxi, Taxes, Food, Clothes, Travelling');
+        let addExpenses;
+        do{
+            addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 'Internet, Taxi, Taxes, Food, Clothes, Travelling');
+        }while(isNumber(addExpenses) || addExpenses === '' || addExpenses === null)
+        appData.addExpenses = addExpenses;
+        console.log(typeof(addExpenses));
         appData.addExpenses = addExpenses.toLowerCase().split(',');
         appData.deposit = confirm('Есть ли у вас депозит в банке?');
 
@@ -116,10 +125,10 @@ appData.asking();
 
 
 
-console.log('Наша программа включает в себя данные: ');
-for (const key in appData) {
-    console.log(key + ' ' + appData[key]);
-}
+// console.log('Наша программа включает в себя данные: ');
+// for (const key in appData) {
+//     console.log(key + ' ' + appData[key]);
+// }
 
 let expensesAmount = appData.getExpensesMonth();
 console.log('Расходы за месяц: ' + expensesAmount);

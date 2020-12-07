@@ -116,10 +116,10 @@ appData.asking();
 
 
 
-// console.log('Наша программа включает в себя данные: ');
-// for (const key in appData) {
-//     console.log(key + ' ' + appData[key]);
-// }
+console.log('Наша программа включает в себя данные: ');
+for (const key in appData) {
+    console.log(key + ' ' + appData[key]);
+}
 
 let expensesAmount = appData.getExpensesMonth();
 console.log('Расходы за месяц: ' + expensesAmount);

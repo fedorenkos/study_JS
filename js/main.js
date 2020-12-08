@@ -1,3 +1,21 @@
+let startBtn = document.getElementById('start');
+let incomeBtnAdd = document.getElementsByTagName('button');
+let expenseBtnAdd = document.getElementsByTagName('button');
+let inputCheck = document.querySelector('#deposit-check');
+let additionalIncome = document.querySelectorAll('.additional_income-item');
+let valueTotalResult = document.getElementsByClassName('result-total');
+let amountSalary = document.querySelector('.salary-amount');
+let incomeTitle = document.querySelector('.income-title');
+let incomeAmount = document.querySelector('.income-amount');
+let expensesTitle = document.querySelector('.expenses-title');
+let expensesAmount = document.querySelector('.expenses-amount');
+let additionalExpenses = document.querySelector('.additional_expenses-item');
+let targetAmount = document.querySelector('.target-amount');
+let periodSelectRange = document.querySelector('.period-select');
+
+
+
+
 let isNumber = function(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
 }

@@ -31,12 +31,12 @@ let appData = {
         if (confirm('Есть ли у вас дополнительный источник зароботка?')) {
 
             let itemIncome;
-            do{
+            do {
                 itemIncome = prompt('Какой дополнительный заработок?', 'Таксую');
-            }   while (isNumber(itemIncome) || itemIncome === '' || itemIncome === null)
+            } while (isNumber(itemIncome) || itemIncome === '' || itemIncome === null)
             appData.income = itemIncome;
-            console.log(typeof(itemIncome));               
-            
+            console.log(typeof(itemIncome));
+
             let cashIncome = 0;
             do {
                 cashIncome = prompt('Сколько в месяц вы на этом зарабатываете?', 10000);
@@ -46,16 +46,18 @@ let appData = {
         }
 
         let addExpenses;
-        do{
+        do {
             addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 'internet, taxi, taxes, food, clothes, travelling');
-        }while(isNumber(addExpenses) || addExpenses === '' || addExpenses === null)
+        } while (isNumber(appData.addExpenses) || appData.addExpenses === '' || appData.addExpenses === null)
         appData.addExpenses = addExpenses;
-        console.log(typeof(addExpenses));
-        for (let i = 0; i < addExpenses.length; i++) {
-            appData.addExpenses = appData.addExpenses[0].toUpperCase() + appData.addExpenses.substr(1);
-            console.log(appData.addExpenses);
+        let words = addExpenses.split(',');
+
+        for (let i = 0; i < words.length; i++) {
+            let word = words[i].trim();
+            let upperCaseWord = word[0].toUpperCase() + word.slice(1);
+
+            console.log(upperCaseWord);
         }
-        appData.addExpenses = addExpenses.toUpperCase().split(',');
         appData.deposit = confirm('Есть ли у вас депозит в банке?');
 
 
@@ -110,13 +112,13 @@ let appData = {
     },
     getInfoDeposit: function() {
         if (appData.deposit) {
-            do{
+            do {
                 appData.percentDeposit = prompt('Какой годовой процент?', '10');
-            }while(!isNumber(appData.percentDeposit) || appData.percentDeposit === '' || appData.percentDeposit === null);
+            } while (!isNumber(appData.percentDeposit) || appData.percentDeposit === '' || appData.percentDeposit === null);
             console.log((appData.percentDeposit));
-            do{
+            do {
                 appData.moneyDeposit = prompt('Какая сумма заложена?', 10000);
-            }while(!isNumber(appData.moneyDeposit) || appData.moneyDeposit === '' || appData.moneyDeposit === null);
+            } while (!isNumber(appData.moneyDeposit) || appData.moneyDeposit === '' || appData.moneyDeposit === null);
             appData.moneyDeposit;
         }
     },

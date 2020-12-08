@@ -19,7 +19,7 @@ let appData = {
     addExpenses: [],
     deposit: false,
     percentDeposit: 0,
-    monetDeposit: 0,
+    moneyDeposit: 0,
     mission: 1200000,
     budget: money,
     budgetDay: 0,
@@ -47,11 +47,15 @@ let appData = {
 
         let addExpenses;
         do{
-            addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 'Internet, Taxi, Taxes, Food, Clothes, Travelling');
+            addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 'internet, taxi, taxes, food, clothes, travelling');
         }while(isNumber(addExpenses) || addExpenses === '' || addExpenses === null)
         appData.addExpenses = addExpenses;
         console.log(typeof(addExpenses));
-        appData.addExpenses = addExpenses.toLowerCase().split(',');
+        for (let i = 0; i < addExpenses.length; i++) {
+            appData.addExpenses = appData.addExpenses[0].toUpperCase() + appData.addExpenses.substr(1);
+            console.log(appData.addExpenses);
+        }
+        appData.addExpenses = addExpenses.toUpperCase().split(',');
         appData.deposit = confirm('Есть ли у вас депозит в банке?');
 
 
@@ -106,8 +110,14 @@ let appData = {
     },
     getInfoDeposit: function() {
         if (appData.deposit) {
-            appData.percentDeposit = prompt('Какой годовой процент?', '10');
-            appData.moneyDeposit = prompt('Какая сумма заложена?', 10000);
+            do{
+                appData.percentDeposit = prompt('Какой годовой процент?', '10');
+            }while(!isNumber(appData.percentDeposit) || appData.percentDeposit === '' || appData.percentDeposit === null);
+            console.log((appData.percentDeposit));
+            do{
+                appData.moneyDeposit = prompt('Какая сумма заложена?', 10000);
+            }while(!isNumber(appData.moneyDeposit) || appData.moneyDeposit === '' || appData.moneyDeposit === null);
+            appData.moneyDeposit;
         }
     },
     calcSavedMoney: function() {
@@ -117,7 +127,7 @@ let appData = {
 
 
 appData.asking();
-
+appData.getInfoDeposit();
 
 
 

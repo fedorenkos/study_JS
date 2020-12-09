@@ -32,9 +32,9 @@ let amountSalary = document.querySelector('.salary-amount');
 console.log(amountSalary);
 
 console.log('--------Titles----------');
-let expensesTitle = document.querySelectorAll('.expenses-title');
+let expensesTitle = document.querySelectorAll('.expenses-title')[1];
 console.log(expensesTitle);
-let incomeTitle = document.querySelectorAll('.income-title');
+let incomeTitle = document.querySelectorAll('.income-title')[1];
 console.log(incomeTitle);
 console.log('--------Titles----------');
 

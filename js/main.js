@@ -50,6 +50,7 @@ let appData = {
             addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 'internet, taxi, taxes, food, clothes, travelling');
         } while (isNumber(appData.addExpenses) || appData.addExpenses === '' || appData.addExpenses === null)
         appData.addExpenses = addExpenses;
+
         let words = addExpenses.split(',');
 
         for (let i = 0; i < words.length; i++) {
@@ -62,7 +63,10 @@ let appData = {
 
 
         for (let i = 0; i < 2; i++) {
-            let mandatoryExpense = prompt('Введите обязательную статью рассходов?', 'Cinema, Theater');
+            let mandatoryExpense;
+            do {
+                mandatoryExpense = prompt('Введите обязательную статью рассходов?', 'Cinema, Theater');
+            } while (isNumber(mandatoryExpense) || mandatoryExpense === '' || mandatoryExpense === null)
             let sumNumbers = 0;
             do {
                 sumNumbers = prompt('Во сколько это обойдется?');

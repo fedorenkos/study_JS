@@ -52,13 +52,13 @@ let appData = {
         appData.addExpenses = addExpenses;
 
         let words = addExpenses.split(',');
+        let upperCaseWord = [];
 
         for (let i = 0; i < words.length; i++) {
             let word = words[i].trim();
-            let upperCaseWord = word[0].toUpperCase() + word.slice(1);
-
-            console.log(upperCaseWord);
+                upperCaseWord.push(word[0].toUpperCase() + word.slice(1));
         }
+        console.log(upperCaseWord);
         appData.deposit = confirm('Есть ли у вас депозит в банке?');
 
 

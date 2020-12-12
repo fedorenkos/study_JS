@@ -19,8 +19,8 @@ let start = document.querySelector('#start'),
     additionalIncomeItem = document.querySelectorAll('.additional_income-item'),
     additionalExpensesItem = document.querySelector('.additional_expenses-item'),
     targetAmount = document.querySelector('.target-amount'),
-    periodSelectRange = document.querySelector('.period-select'),
-    periodAmount = document.querySelector('.period-amount');
+    periodSelectRange = document.querySelector('.period-select'), //input
+    periodAmount = document.querySelector('.period-amount'); // div в который идет вывод
     depositCheck = document.querySelector('#deposit-check');
 
 
@@ -85,11 +85,8 @@ let appData = {
             expensePlus.style.display = 'none';
         }
     },
-    rangeSelect: function(){
-        periodSelectRange.forEach(function(item){
-            periodAmount.innerHTML = item.value;
-        });
-        
+    rangeSelect: function(e){
+        periodAmount.innerHTML = e.target.value;
     },
     getExpenses: function(){
         expensesItems.forEach(function(item){
@@ -182,7 +179,7 @@ let appData = {
 start.addEventListener('click', appData.start);
 incomePlus.addEventListener('click', appData.addIncomeBlock);
 expensePlus.addEventListener('click', appData.addExpensesBlock);
-periodSelectRange.addEventListener('oninput', appData.rangeSelect);
+periodSelectRange.addEventListener('input', appData.rangeSelect);
 
 // function inputRange(){
 //     let periodAmount = document.querySelector('.period-amount');

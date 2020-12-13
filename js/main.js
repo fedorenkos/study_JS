@@ -69,8 +69,6 @@ let appData = {
         additionalIncomeValue.value = appData.addIncome.join(', ');
         targetMonthValue.value =  Math.ceil(appData.getTargetMonth());
         incomePeriodValue.value = appData.calcSavedMoney();
-        incomePeriodValue.value = appData.rangeSelect();
-
     },
     addIncomeBlock: function(){
         let cloneIncomeItem = incomeItems[0].cloneNode(true);
@@ -88,8 +86,8 @@ let appData = {
             expensePlus.style.display = 'none';
         }
     },
-    rangeSelect: function(e){
-        periodAmount.innerHTML = e.target.value;
+    rangeSelect: function(){
+        periodAmount.innerHTML = periodSelectRange.value;
     },
     getExpenses: function(){
         expensesItems.forEach(function(item){

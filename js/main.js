@@ -56,7 +56,6 @@ let appData = {
         appData.getAddExpenses();
         appData.getAddIncome();
         appData.getBudget();
-        appData.rangeSelect();
         appData.showResult();
 
     },
@@ -68,7 +67,6 @@ let appData = {
         additionalIncomeValue.value = appData.addIncome.join(', ');
         targetMonthValue.value = Math.ceil(appData.getTargetMonth());
         incomePeriodValue.value = appData.calcSavedMoney();
-        // periodSelectRange.value = appData.calcSavedMoney();
     },
     addIncomeBlock: function() {
         let cloneIncomeItem = incomeItems[0].cloneNode(true);
@@ -89,10 +87,6 @@ let appData = {
     rangeSelect: function() {
         periodAmount.innerHTML = periodSelectRange.value;
         incomePeriodValue.value = appData.budget * periodSelectRange.value;
-        // incomePeriodValue.value *= periodSelectRange.value;
-        // console.log(appData.budget);
-        // console.log(periodSelectRange.value);
-        // console.log(incomePeriodValue.value);
     },
     getExpenses: function() {
         expensesItems.forEach(function(item) {
@@ -186,7 +180,6 @@ start.addEventListener('click', appData.start);
 incomePlus.addEventListener('click', appData.addIncomeBlock);
 expensePlus.addEventListener('click', appData.addExpensesBlock);
 periodSelectRange.addEventListener('input', appData.rangeSelect);
-incomePeriodValue.addEventListener('input', appData.calcSavedMoney);
 
 console.log('Наша программа включает в себя данные: ');
 for (const key in appData) {

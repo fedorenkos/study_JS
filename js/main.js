@@ -86,7 +86,8 @@ let appData = {
     },
     rangeSelect: function() {
         periodAmount.innerHTML = periodSelectRange.value;
-        incomePeriodValue.value = appData.budget * periodSelectRange.value;
+        // incomePeriodValue.value = appData.budget * periodSelectRange.value;
+        incomePeriodValue.value = appData.calcSavedMoney();
     },
     getExpenses: function() {
         expensesItems.forEach(function(item) {

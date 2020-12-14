@@ -27,8 +27,7 @@ depositCheck = document.querySelector('#deposit-check');
 let isNumber = function(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
 }
-
-
+// вав
 let appData = {
     income: {},
     addIncome: [],
@@ -89,7 +88,11 @@ let appData = {
     },
     rangeSelect: function() {
         periodAmount.innerHTML = periodSelectRange.value;
-        incomePeriodValue.value *= periodSelectRange.value;
+        incomePeriodValue.value = appData.budget * periodSelectRange.value;
+        // incomePeriodValue.value *= periodSelectRange.value;
+        // console.log(appData.budget);
+        // console.log(periodSelectRange.value);
+        // console.log(incomePeriodValue.value);
     },
     getExpenses: function() {
         expensesItems.forEach(function(item) {

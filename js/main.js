@@ -14,14 +14,13 @@ let start = document.querySelector('#start'),
     expensesTitle = document.querySelectorAll('.expenses-title')[1],
     incomeTitle = document.querySelectorAll('.income-title')[1],
     incomeItems = document.querySelectorAll('.income-items'),
-
     expensesItems = document.querySelectorAll('.expenses-items'),
     additionalIncomeItem = document.querySelectorAll('.additional_income-item'),
     additionalExpensesItem = document.querySelector('.additional_expenses-item'),
     targetAmount = document.querySelector('.target-amount'),
     periodSelectRange = document.querySelector('.period-select'), //input
     periodAmount = document.querySelector('.period-amount'); // div в который идет вывод
-depositCheck = document.querySelector('#deposit-check');
+    depositCheck = document.querySelector('#deposit-check');
 
 
 let isNumber = function(n) {
@@ -43,12 +42,7 @@ let appData = {
     expensesMonth: 0,
     period: 12,
     start: function() {
-        if (amountSalary.value === '') {
-            alert('Ошибка, поле "Месячный доход" должно быть заполнено');
-            return;
-        }
         appData.budget = +amountSalary.value;
-
         appData.getExpenses();
         appData.getIncome();
         appData.getExpensesMonth();
@@ -86,7 +80,6 @@ let appData = {
     },
     rangeSelect: function() {
         periodAmount.innerHTML = periodSelectRange.value;
-        // incomePeriodValue.value = appData.budget * periodSelectRange.value;
         incomePeriodValue.value = appData.calcSavedMoney();
     },
     getExpenses: function() {
@@ -177,7 +170,13 @@ let appData = {
     }
 };
 
-start.addEventListener('click', appData.start);
+start.addEventListener('click', function(){
+if (amountSalary.value === '') {
+    alert('Ошибка, поле "Месячный доход" должно быть заполнено');
+    return;
+}
+appData.start();
+});
 incomePlus.addEventListener('click', appData.addIncomeBlock);
 expensePlus.addEventListener('click', appData.addExpensesBlock);
 periodSelectRange.addEventListener('input', appData.rangeSelect);

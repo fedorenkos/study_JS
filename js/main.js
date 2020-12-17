@@ -157,20 +157,28 @@ let appData = {
     },
     calcSavedMoney: function() {
         return this.budgetMonth * periodSelectRange.value;
+    },
+    reset: function () {
+        let inputLeftSideData = document.querySelectorAll('.data input[type=text]');
+        inputLeftSideData.forEach(function(e){
+            e.value = '';
+            e.removeAttribute('disabled');
+        });
     }
 };
+
 
 start.addEventListener('click', function() {
     if (amountSalary.value === '') {
         alert('Ошибка, поле "Месячный доход" должно быть заполнено');
         return;
     }
-    appData.start();
+    appData.start.bind(appData);
 });
 incomePlus.addEventListener('click', appData.addIncomeBlock);
 expensePlus.addEventListener('click', appData.addExpensesBlock);
 periodSelectRange.addEventListener('input', appData.rangeSelect);
-
+cancel.addEventListener('click',appData.reset(appData));
 // console.log('Наша программа включает в себя данные: ');
 // for (const key in appData) {
 //     console.log(key + ' ' + appData[key]);

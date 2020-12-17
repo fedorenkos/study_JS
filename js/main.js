@@ -95,10 +95,10 @@ let appData = {
     getIncome: function() {
         incomeItems.forEach(function(item) {
             console.log(item);
-            incomeTitle = item.querySelector('.income-title').value;
+            let incomeItem = item.querySelector('.income-title').value;
             let cashIncome = item.querySelector('.income-amount').value;
-            if (incomeTitle !== '' && cashIncome !== '') {
-                appData.income[incomeItems] = cashIncome;
+            if (incomeItem !== '' && cashIncome !== '') {
+                appData.income[incomeItem] = cashIncome;
             }
         });
         for (let key in appData.income) {
@@ -126,11 +126,10 @@ let appData = {
     },
 
     getExpensesMonth: function() {
-        for (const sumNumbers in appData.expenses) {
-            if (isNumber(appData.expenses[sumNumbers])) {
-                appData.expensesMonth += appData.expenses[sumNumbers];
-            }
+        for (const key in appData.expenses) {
+            appData.expensesMonth += +appData.expenses[key];
         }
+        console.log(appData.expensesMonth);
         return appData.expensesMonth;
     },
     getBudget: function() {
@@ -181,10 +180,10 @@ incomePlus.addEventListener('click', appData.addIncomeBlock);
 expensePlus.addEventListener('click', appData.addExpensesBlock);
 periodSelectRange.addEventListener('input', appData.rangeSelect);
 
-console.log('Наша программа включает в себя данные: ');
-for (const key in appData) {
-    console.log(key + ' ' + appData[key]);
-}
+// console.log('Наша программа включает в себя данные: ');
+// for (const key in appData) {
+//     console.log(key + ' ' + appData[key]);
+// }
 
 console.log(appData.getStatusIncome());
 

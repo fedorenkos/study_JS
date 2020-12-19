@@ -168,21 +168,12 @@ let appData = {
         inputLeftSideData.forEach(function(e){
             e.value = '';
             e.removeAttribute('disabled');
-            // periodSelectRange.value = 0;
-            // periodAmount.innerHTML = periodSelectRange.value;
         });
         resultRightSide.forEach(function(e){
             e.value = '';
             e.removeAttribute('disabled');
         });
-        // for (let i = 1; i < incomeItems.length; i++) {
-        //     incomeItems[i].parentNode.removeChild(incomeItems[i]);
-        //     incomePlus.style.display = 'block';
-        // }
-        // for (let i = 1; i < expensesItems.length; i++) {
-        //     expensesItems[i].parentNode.removeChild(expensesItems[i]);
-        //     expensePlus.style.display = 'block';
-        // }
+
         this.budget = 0;
         this.budgetDay = 0;
         this.budgetMonth = 0;
@@ -196,12 +187,11 @@ let appData = {
         this.percentDeposit = 0;
         this.moneyDeposit = 0;
 
+
         cancel.style.display = 'none';
         start.style.display = 'block';
         expensePlus.removeAttribute('disabled');
-        console.log(inputLeftSideData);
         incomePlus.removeAttribute('disabled');
-        console.log(resultRightSide);
         checkbox.checked = false;
     }
 };
@@ -212,13 +202,16 @@ start.addEventListener('click', function() {
         alert('Ошибка, поле "Месячный доход" должно быть заполнено');
         return;
     }
-    appData.start.call(appData);
+    cancel.style.display = 'block';
+    start.style.display = 'none';
+
+    appData.start();
 });
 incomePlus.addEventListener('click', appData.addIncomeBlock);
 expensePlus.addEventListener('click', appData.addExpensesBlock);
 periodSelectRange.addEventListener('input', appData.rangeSelect);
 amountSalary.addEventListener('keyup', appData.check);
-cancel.addEventListener('click',appData.reset.call(appData));
+cancel.addEventListener('click',appData.reset);
 // console.log('Наша программа включает в себя данные: ');
 // for (const key in appData) {
 //     console.log(key + ' ' + appData[key]);

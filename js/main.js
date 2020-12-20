@@ -53,9 +53,10 @@ let appData = {
         this.getInfoDeposit();
         this.getAddExpenses();
         this.getAddIncome();
+        this.calcSavedMoney();
         this.getBudget();
         this.showResult();
-        this.calcSavedMoney();
+        
     },
     showResult: function() {
         budgetMonthValue.value = this.budgetMonth;
@@ -84,7 +85,6 @@ let appData = {
         }
     },
     rangeSelect: function() {
-        // const _this =this;
         periodAmount.innerHTML = periodSelectRange.value;
         incomePeriodValue.value = this.calcSavedMoney();
     },
@@ -179,6 +179,9 @@ let appData = {
             e.removeAttribute('disabled');
         });
 
+        periodSelectRange.value = 1;
+        periodAmount.innerHTML = '1';
+
         this.budget = 0;
         this.budgetDay = 0;
         this.budgetMonth = 0;
@@ -212,11 +215,26 @@ start.addEventListener('click', function() {
 
     appData.start();
 });
-incomePlus.addEventListener('click', appData.addIncomeBlock);
-expensePlus.addEventListener('click', appData.addExpensesBlock);
-periodSelectRange.addEventListener('input', appData.rangeSelect);
-amountSalary.addEventListener('keyup', appData.check);
-cancel.addEventListener('click',appData.reset);
+// incomePlus.addEventListener('click', appData.addIncomeBlock);
+incomePlus.addEventListener('click', function () {
+    appData.addIncomeBlock();
+});
+// expensePlus.addEventListener('click', appData.addExpensesBlock);
+expensePlus.addEventListener('click', function () {
+    appData.addExpensesBlock();
+});
+// periodSelectRange.addEventListener('input', appData.rangeSelect);
+periodSelectRange.addEventListener('input', function () {
+    appData.rangeSelect();
+});
+// amountSalary.addEventListener('keyup', appData.check);
+amountSalary.addEventListener('keyup', function () {
+    appData.check();
+});
+// cancel.addEventListener('click', appData.reset);
+cancel.addEventListener('click', function () {
+    appData.reset();
+});
 // console.log('Наша программа включает в себя данные: ');
 // for (const key in appData) {
 //     console.log(key + ' ' + appData[key]);

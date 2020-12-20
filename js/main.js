@@ -55,6 +55,7 @@ let appData = {
         this.getAddIncome();
         this.getBudget();
         this.showResult();
+        this.calcSavedMoney();
     },
     showResult: function() {
         budgetMonthValue.value = this.budgetMonth;
@@ -83,45 +84,49 @@ let appData = {
         }
     },
     rangeSelect: function() {
+        // const _this =this;
         periodAmount.innerHTML = periodSelectRange.value;
-        incomePeriodValue.value = appData.calcSavedMoney();
+        incomePeriodValue.value = this.calcSavedMoney();
     },
     getExpenses: function() {
+        const _this = this;
         expensesItems.forEach(function(item) {
             let itemExpenses = item.querySelector('.expenses-title').value;
             let cashExpenses = item.querySelector('.expenses-amount').value;
             if (itemExpenses !== '' && cashExpenses !== '') {
-                appData.expenses[itemExpenses] = cashExpenses;
+                _this.expenses[itemExpenses] = cashExpenses;
             }
         });
     },
     getIncome: function() {
+        const _this = this;
         incomeItems.forEach(function(item) {
             let incomeTitle = item.querySelector('.income-title').value;
             let cashIncome = item.querySelector('.income-amount').value;
             if (incomeTitle !== '' && cashIncome !== '') {
-                appData.income[incomeItems] = cashIncome;
+                _this.income[incomeItems] = cashIncome;
             }
         });
-        for (let key in appData.income) {
-            appData.incomeMonth += +appData.income[key];
+        for (let key in this.income) {
+            this.incomeMonth += +this.income[key];
         }
     },
     getAddExpenses: function() {
+        const _this = this;
         let addExpenses = additionalExpensesItem.value.split(', ');
-        console.log(addExpenses);
         addExpenses.forEach(function(item) {
             item = item.trim();
             if (item !== '') {
-                appData.addExpenses.push(item);
+                _this.addExpenses.push(item);
             }
         });
     },
     getAddIncome: function() {
+        const _this = this;
         additionalIncomeItem.forEach(function(item) {
             let itemValue = item.value.trim();
             if (itemValue !== '') {
-                appData.addIncome.push(itemValue);
+                _this.addIncome.push(itemValue);
             }
         });
     },

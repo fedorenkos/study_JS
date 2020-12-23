@@ -198,6 +198,8 @@ let appData = {
 
         cancel.style.display = 'none';
         start.style.display = 'block';
+        expensesItems = removeAttribute('disabled');
+        incomeItems = removeAttribute('disabled');
         expensePlus.removeAttribute('disabled');
         incomePlus.removeAttribute('disabled');
         checkbox.checked = false;

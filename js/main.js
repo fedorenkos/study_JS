@@ -178,7 +178,9 @@ let appData = {
             e.value = '';
             e.removeAttribute('disabled');
         });
-
+        incomeItems.forEach(function(item){
+            item.remove();
+        });
         periodSelectRange.value = 1;
         periodAmount.innerHTML = '1';
 

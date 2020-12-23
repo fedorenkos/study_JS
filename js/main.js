@@ -178,9 +178,14 @@ let appData = {
             e.value = '';
             e.removeAttribute('disabled');
         });
-        incomeItems.forEach(function(item){
-            item.remove();
-        });
+        if (incomeItems.length === 3) {
+            incomeItems[1].remove();
+            incomeItems[2].remove();
+        }
+        if (expensesItems.length === 3) {
+            expensesItems[1].remove();
+            expensesItems[2].remove();
+        }
         periodSelectRange.value = 1;
         periodAmount.innerHTML = '1';
 
@@ -200,8 +205,8 @@ let appData = {
 
         cancel.style.display = 'none';
         start.style.display = 'block';
-        expensesItems = removeAttribute('disabled');
-        incomeItems = removeAttribute('disabled');
+        incomePlus.style.display = 'block';
+        expensePlus.style.display = 'block';
         expensePlus.removeAttribute('disabled');
         incomePlus.removeAttribute('disabled');
         checkbox.checked = false;

@@ -22,7 +22,6 @@ let start = document.querySelector('#start'),
     periodAmount = document.querySelector('.period-amount'); // div в который идет вывод
 depositCheck = document.querySelector('#deposit-check');
 
-
 let isNumber = function(n) {
         return !isNaN(parseFloat(n)) && isFinite(n);
     }
@@ -168,11 +167,12 @@ let appData = {
         return this.budgetMonth * periodSelectRange.value;
     },
     reset: function () {
-        let inputLeftSideData = document.querySelectorAll('.data input[type=text]');
+        let inputLeftSideData = document.querySelectorAll('.data input[type=text]');    
         let resultRightSide = document.querySelectorAll('.result input[type=text]');
         inputLeftSideData.forEach(function(e){
             e.value = '';
             e.removeAttribute('disabled');
+            
         });
         resultRightSide.forEach(function(e){
             e.value = '';
@@ -215,10 +215,15 @@ let appData = {
 
 
 start.addEventListener('click', function() {
+    let inputLeftSideData = document.querySelectorAll('.data input[type=text]');
+
     if (amountSalary.value === '') {
         alert('Ошибка, поле "Месячный доход" должно быть заполнено');
         return;
     }
+    inputLeftSideData.forEach(function(item){
+    item.setAttribute("disabled", "disabled"); 
+    });
     cancel.style.display = 'block';
     start.style.display = 'none';
 

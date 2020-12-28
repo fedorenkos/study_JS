@@ -208,15 +208,15 @@ reset() {
 
 
 eventListeners(){
-    start.addEventListener('click', function() {
+    start.addEventListener('click', () => {
         const inputLeftSideData = document.querySelectorAll('.data input[type=text]');
-    
+
         if (amountSalary.value === '') {
             alert('Ошибка, поле "Месячный доход" должно быть заполнено');
             return;
         }
         inputLeftSideData.forEach(function(item){
-        item.setAttribute("disabled", "disabled"); 
+        item.setAttribute("disabled", "disabled");
         });
         cancel.style.display = 'block';
         start.style.display = 'none';
@@ -237,8 +237,8 @@ eventListeners(){
     //     this.check(this);
     // });
     // cancel.addEventListener('click', appData.reset);
-    cancel.addEventListener('click', function () {
-        this.reset.call(this);
+    cancel.addEventListener('click', () =>{
+        this.reset.call();
     });
     }
 };

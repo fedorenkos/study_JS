@@ -216,12 +216,11 @@ eventListeners(){
             return;
         }
         inputLeftSideData.forEach(function(item){
-        item.setAttribute("disabled", "disabled");
+            item.setAttribute("disabled", "disabled");
         });
         cancel.style.display = 'block';
         start.style.display = 'none';
-        console.log(start);
-        this.start.call();
+        this.start.call(this);
     });
     incomePlus.addEventListener('click', this.addIncomeBlock);
     // incomePlus.addEventListener('click', this.addIncomeBlock);
@@ -238,7 +237,7 @@ eventListeners(){
     // });
     // cancel.addEventListener('click', appData.reset);
     cancel.addEventListener('click', () =>{
-        this.reset.call();
+        this.reset.call(this);
     });
     }
 };

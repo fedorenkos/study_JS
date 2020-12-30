@@ -166,9 +166,7 @@ getInfoDeposit() {
             console.log(this.percentDeposit);
             alert('Введите корректное значение в поле проценты');
         }
-        
     }
-    
 };
 calcSavedMoney() {
     return this.budgetMonth * periodSelectRange.value;

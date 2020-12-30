@@ -162,14 +162,13 @@ getInfoDeposit() {
     if (this.deposit) {
         this.percentDeposit = depositPercent.value;
         this.moneyDeposit = depositAmount.value;
-
-        do {
-            this.percentDeposit = prompt('Какой годовой процент?', '10');
-        } while (isNaN(this.percentDeposit) || this.percentDeposit === '' || this.percentDeposit === null);
-        do {
-            this.moneyDeposit = prompt('Какая сумма заложена?', 10000);
-        } while (isNaN(this.moneyDeposit) || this.moneyDeposit === '' || this.moneyDeposit === null);
+        if (isNaN(this.percentDeposit) || this.percentDeposit === '' || this.percentDeposit === null || this.percentDeposit >= 100) {
+            console.log(this.percentDeposit);
+            alert('Введите корректное значение в поле проценты');
+        }
+        
     }
+    
 };
 calcSavedMoney() {
     return this.budgetMonth * periodSelectRange.value;
@@ -196,6 +195,9 @@ reset() {
 
     depositBank.value = '';
     depositAmount.value = '';
+    depositBank.style.display = 'none';
+    depositAmount.style.display = 'none';
+    depositPercent.style.display = 'none';
 
     this.budget = 0;
     this.budgetDay = 0;
@@ -219,20 +221,21 @@ reset() {
 
 changePercent(){
     const valueSelect = this.value;
-        if (valueSelect === 'other') {
+        if (valueSelect === 'other' ) {
             depositPercent.style.display = 'inline-block';
             depositPercent.value = '';
+            
         } else {
             depositPercent.value = valueSelect;
             depositPercent.style.display = 'none';
         }
+        
 };
 
 depositHandler(){
     if (depositCheck.checked) {
         depositBank.style.display = 'inline-block';
         depositAmount.style.display = 'inline-block';
-        
         this.deposit = true;
         depositBank.addEventListener('change', this.changePercent);
     }else{
@@ -244,10 +247,13 @@ depositHandler(){
         this.deposit = false;
         depositBank.removeEventListener('change', this.changePercent);
     }
+    
+    
 }
 
 eventListeners(){
     start.addEventListener('click', () => {
+        
         const inputLeftSideData = document.querySelectorAll('.data input[type=text]');
 
         if (amountSalary.value === '') {
@@ -257,6 +263,7 @@ eventListeners(){
         inputLeftSideData.forEach(function(item){
             item.setAttribute("disabled", "disabled");
         });
+        
         cancel.style.display = 'block';
         start.style.display = 'none';
         this.start.call(this);

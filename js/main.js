@@ -15,13 +15,13 @@ const start = document.querySelector('#start'),
     incomePeriodValue = document.getElementsByClassName('income_period-value')[0],
     targetMonthValue = document.getElementsByClassName('target_month-value')[0],
     amountSalary = document.querySelector('.salary-amount'),
-    expensesTitle = document.querySelectorAll('.expenses-title')[1],
-    incomeTitle = document.querySelectorAll('.income-title')[1],
+    // expensesTitle = document.querySelectorAll('.expenses-title')[1],
+    // incomeTitle = document.querySelectorAll('.income-title')[1],
     additionalIncomeItem = document.querySelectorAll('.additional_income-item'),
     additionalExpensesItem = document.querySelector('.additional_expenses-item'),
     targetAmount = document.querySelector('.target-amount'),
-    periodSelectRange = document.querySelector('.period-select'), //input
-    periodAmount = document.querySelector('.period-amount'), // div в который идет вывод
+    periodSelectRange = document.querySelector('.period-select'), 
+    periodAmount = document.querySelector('.period-amount'), 
     depositCheck = document.querySelector('#deposit-check');
 
 let incomeItems = document.querySelectorAll('.income-items'),
@@ -223,19 +223,11 @@ eventListeners(){
         this.start.call(this);
     });
     incomePlus.addEventListener('click', this.addIncomeBlock);
-    // incomePlus.addEventListener('click', this.addIncomeBlock);
-    // };
     expensePlus.addEventListener('click', this.addExpensesBlock);
-    // expensePlus.addEventListener('click', this.addExpensesBlock)};
-    // periodSelectRange.addEventListener('input', appData.rangeSelect);
-    periodSelectRange.addEventListener('input', () => {
-        this.rangeSelect.call(this);
-    });
-    // amountSalary.addEventListener('keyup', appData.check);
-    // amountSalary.addEventListener('keyup', function () {
-    //     this.check(this);
+    // periodSelectRange.addEventListener('input', () => {
+    //     this.rangeSelect.call(this);
     // });
-    // cancel.addEventListener('click', appData.reset);
+    periodSelectRange.addEventListener('input', this.rangeSelect.bind(this));
     cancel.addEventListener('click', () =>{
         this.reset.call(this);
     });
